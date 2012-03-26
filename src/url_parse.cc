@@ -347,6 +347,7 @@ void DoParseFileSystemURL(const CHAR* spec, int spec_len, Parsed* parsed) {
   parsed->path.reset();   // May use this; reset for convenience.
   parsed->ref.reset();    // May use this; reset for convenience.
   parsed->query.reset();  // May use this; reset for convenience.
+  parsed->clear_inner_parsed();  // May use this; reset for convenience.
 
   // Strip leading & trailing spaces and control characters.
   int begin = 0;
