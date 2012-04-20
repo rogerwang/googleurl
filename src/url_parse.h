@@ -121,10 +121,10 @@ struct Parsed {
 
   // The default constructor is sufficient for the components, but inner_parsed_
   // requires special handling.
-  GURL_API Parsed();
-  GURL_API Parsed(const Parsed&);
-  GURL_API Parsed& operator=(const Parsed&);
-  GURL_API ~Parsed();
+  GURL_EXPORTED Parsed();
+  GURL_EXPORTED Parsed(const Parsed&);
+  GURL_EXPORTED Parsed& operator=(const Parsed&);
+  GURL_EXPORTED ~Parsed();
 
   // Returns the length of the URL (the end of the last component).
   //

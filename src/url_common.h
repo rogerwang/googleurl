@@ -50,5 +50,17 @@
 #define GURL_API
 #endif
 
+
+#if defined(WIN32)
+#if GURL_IMPLEMENTATION
+#define GURL_EXPORTED __declspec(dllexport)
+#else
+#define GURL_EXPORTED __declspec(dllimport)
+#endif
+#else
+// Non-Windows DLLs.
+#define GURL_EXPORTED __attribute__((visibility("default")))
+#endif
+
 #endif  // GOOGLEURL_SRC_URL_COMMON_H__
 
