@@ -45,11 +45,11 @@ class GURL {
   typedef url_canon::StdStringReplacements<string16> ReplacementsW;
 
   // Creates an empty, invalid URL.
-  GURL_EXPORTED GURL();
+  GURL_API GURL();
 
   // Copy construction is relatively inexpensive, with most of the time going
   // to reallocating the string. It does not re-parse.
-  GURL_EXPORTED GURL(const GURL& other);
+  GURL_API GURL(const GURL& other);
 
   // The narrow version requires the input be UTF-8. Invalid UTF-8 input will
   // result in an invalid URL.
@@ -58,18 +58,18 @@ class GURL {
   // encode the query parameters. It is probably sufficient for the narrow
   // version to assume the query parameter encoding should be the same as the
   // input encoding.
-  GURL_EXPORTED explicit GURL(const std::string& url_string
+  GURL_API explicit GURL(const std::string& url_string
                          /*, output_param_encoding*/);
-  GURL_EXPORTED explicit GURL(const string16& url_string
+  GURL_API explicit GURL(const string16& url_string
                          /*, output_param_encoding*/);
 
   // Constructor for URLs that have already been parsed and canonicalized. This
   // is used for conversions from KURL, for example. The caller must supply all
   // information associated with the URL, which must be correct and consistent.
-  GURL_EXPORTED GURL(const char* canonical_spec, size_t canonical_spec_len,
+  GURL_API GURL(const char* canonical_spec, size_t canonical_spec_len,
                 const url_parse::Parsed& parsed, bool is_valid);
 
-  GURL_EXPORTED GURL& operator=(const GURL& other);
+  GURL_API GURL& operator=(const GURL& other);
 
   // Returns true when this object represents a valid parsed URL. When not
   // valid, other functions will still succeed, but you will not get canonical
@@ -101,7 +101,7 @@ class GURL {
   // Used invalid_spec() below to get the unusable spec of an invalid URL. This
   // separation is designed to prevent errors that may cause security problems
   // that could result from the mistaken use of an invalid URL.
-  GURL_EXPORTED const std::string& spec() const;
+  GURL_API const std::string& spec() const;
 
   // Returns the potentially invalid spec for a the URL. This spec MUST NOT be
   // modified or sent over the network. It is designed to be displayed in error
